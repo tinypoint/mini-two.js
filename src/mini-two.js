@@ -79,6 +79,15 @@ class MiniTwo extends Base {
       }
     }
   };
+
+  resize = (width, height, dpr = this.dpr) => {
+    this.elem.width = width * dpr;
+    this.elem.height = height * dpr;
+    this.elem.style.width = width + "px";
+    this.elem.style.height = height + "px";
+    this.width = width;
+    this.height = height;
+  };
 }
 
 export default MiniTwo;

@@ -17,7 +17,7 @@ class Rect extends Base {
     const height = scene.lc2s(this.height);
     const [x, y] = scene.xyc2s([
       this.x - this.width / 2,
-      this.y + this.width / 2
+      this.y + this.height / 2
     ]);
 
     ctx.strokeStyle = this.borderColor;
@@ -25,7 +25,6 @@ class Rect extends Base {
     ctx.lineWidth = scene.lc2s(this.borderWidth);
 
     ctx.moveTo(x, y);
-
     ctx.fillRect(x, y, width, height);
     ctx.strokeRect(x, y, width, height);
   };

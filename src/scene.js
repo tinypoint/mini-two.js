@@ -1,12 +1,8 @@
 class Scene {
-  width;
-  height;
   miniTwoInstance;
   objects = [];
   constructor(miniTwoInstance) {
     this.miniTwoInstance = miniTwoInstance;
-    this.width = miniTwoInstance.width * miniTwoInstance.dpr;
-    this.height = miniTwoInstance.height * miniTwoInstance.dpr;
   }
 
   // 坐标转换
@@ -15,7 +11,7 @@ class Scene {
     const rate = miniTwoInstance.dpr / miniTwoInstance.scale;
     const s =
       (c + miniTwoInstance.origin.x - miniTwoInstance.translateX) * rate +
-      this.width / 2;
+      (miniTwoInstance.width * miniTwoInstance.dpr) / 2;
     return s;
   };
 
@@ -23,7 +19,7 @@ class Scene {
     const miniTwoInstance = this.miniTwoInstance;
     const rate = miniTwoInstance.dpr / miniTwoInstance.scale;
     const s =
-      this.height / 2 -
+      (miniTwoInstance.height * miniTwoInstance.dpr) / 2 -
       (c + miniTwoInstance.origin.y - miniTwoInstance.translateY) * rate;
     return s;
   };
@@ -32,7 +28,7 @@ class Scene {
     const miniTwoInstance = this.miniTwoInstance;
     const rate = miniTwoInstance.dpr / miniTwoInstance.scale;
     const c =
-      (s - this.width / 2) / rate -
+      (s - (miniTwoInstance.width * miniTwoInstance.dpr) / 2) / rate -
       miniTwoInstance.origin.x +
       miniTwoInstance.translateX;
     return c;
@@ -42,7 +38,7 @@ class Scene {
     const miniTwoInstance = this.miniTwoInstance;
     const rate = miniTwoInstance.dpr / miniTwoInstance.scale;
     const c =
-      (this.height / 2 - s) / rate -
+      ((miniTwoInstance.height * miniTwoInstance.dpr) / 2 - s) / rate -
       miniTwoInstance.origin.y +
       miniTwoInstance.translateY;
     return c;
@@ -76,7 +72,13 @@ class Scene {
   };
 
   clearCanvas = ctx => {
-    ctx.clearRect(0, 0, this.width, this.height);
+    const miniTwoInstance = this.miniTwoInstance;
+    ctx.clearRect(
+      0,
+      0,
+      miniTwoInstance.width * miniTwoInstance.dpr,
+      miniTwoInstance.height * miniTwoInstance.dpr
+    );
   };
 
   draw = ctx => {
