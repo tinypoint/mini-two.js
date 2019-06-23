@@ -1,0 +1,41 @@
+{
+  "name": "mini-two.js",
+  "version": "1.0.0",
+  "description": "A canvas 2d library with little size, but powerful features contains: animate loop, coordinate, shapes(rect, image, line, circle, curve...) and their translate rotate alpha and so on.",
+  "main": "dist/mini-two.min.js",
+  "module": "dist/mini-two.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build.js",
+    "publish": "node scripts/publish.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinypoint/mini-two.js.git"
+  },
+  "keywords": [
+    "canvas",
+    "2d",
+    "animate",
+    "requestAnimateFrame",
+    "translate",
+    "scale",
+    "alpha"
+  ],
+  "author": "tinypoint",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tinypoint/mini-two.js/issues"
+  },
+  "homepage": "https://github.com/tinypoint/mini-two.js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.35.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.4",
+    "webpack-merge": "^4.2.1"
+  }
+}
